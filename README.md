@@ -29,3 +29,16 @@ Randevu bağlantıları doğrulanmış Instagram profiline gider. Mobilde sabit 
 
 Masaüstü ve mobil ekran görüntüleri `output/playwright/` klasöründedir. Kullanıcının isteği doğrultusunda bu aşamada Lighthouse ölçümü yapılmaz; odak kompozisyon, çalışan etkileşim, kaydırma ve erişilebilirliktir.
 # agackakan.tattoo
+
+
+## SEO ve yayın yapılandırması
+
+Next.js Metadata API ile başlık, açıklama, canonical, Open Graph ve Twitter kartları sunucuda üretilir. `/opengraph-image` stüdyo görsellerinden 1200 × 630 paylaşım kartı oluşturur. Ana sayfanın JSON-LD verisi stüdyo adresini, telefonu, sanatçıyı ve eser görsellerini tanımlar. `/robots.txt` ve `/sitemap.xml` Next.js metadata rotalarıdır; sitemap yalnızca ana sayfayı ve eser görsellerini içerir. Tasarım alternatifleri `/a` ve `/b` her ortamda `noindex` kullanır.
+
+Yayın öncesinde `.env.example` dosyasını temel alarak sunucu ortam değişkenlerini ayarlayın:
+
+- `SITE_URL`: HTTPS dahil gerçek yayın alan adı; alt yol, sorgu veya fragment içermemeli. Bu değer **üretim derlemesinden önce** tanımlanmalıdır.
+- `SEO_INDEXABLE=false`: test/staging ortamlarını indekslemeye kapatır. Yerel adresler ve Vercel preview ortamları otomatik olarak kapalıdır. Üretimde gerçek `SITE_URL` ile bu değer `true` olmalıdır.
+- `GOOGLE_SITE_VERIFICATION` ve `BING_SITE_VERIFICATION`: isteğe bağlı site sahipliği doğrulama kodları; HTML etiketinin tamamını değil, content değerini kullanın.
+
+Değişkenler güncellendiğinde tekrar `npm run build` çalıştırın. Alan adı ayarlanmadan yapılan derleme yerel önizleme adresini kullanır ve indekslemeye kapalı kalır. Yayın sonrasında Search Console ve Bing Webmaster Tools üzerinden siteyi doğrulayın ve `/sitemap.xml` adresini gönderin. Adres/telefon veya eser değişiklikleri `src/content/site.ts` ve `src/content/seo.ts` içinde tutarlı güncellenmelidir. Doğrulanmamış değerlendirme, çalışma saati veya konum koordinatı yapılandırılmış veriye eklenmez.

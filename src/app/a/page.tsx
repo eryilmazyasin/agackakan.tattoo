@@ -3,6 +3,9 @@ import { OpeningMotion } from "@/components/OpeningMotion/OpeningMotion";
 import { PreviewNavigation } from "@/components/PreviewNavigation";
 import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/content/site";
+import { previewMetadata } from "@/content/seo";
+
+export const metadata = previewMetadata;
 
 export default function ArtworkOpening() {
   const artwork = site.images.artwork;

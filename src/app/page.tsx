@@ -5,10 +5,12 @@ import { Copyright } from "@/components/Copyright";
 import { Portfolio } from "@/components/Portfolio/Portfolio";
 import { ArtistProcess } from "@/components/ArtistProcess/ArtistProcess";
 import { artworks, prototypeLayers, site } from "@/content/site";
+import { structuredData } from "@/content/seo";
 
 export default function TattooPortfolio() {
   return (
     <div className="prototype">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       <a className="skip-link" href="#eserler" style={{ zIndex: prototypeLayers.skipLink }}>Eserlere geç</a>
       <main>
         <ArtistHero />

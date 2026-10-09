@@ -138,7 +138,7 @@ button:focus-visible { outline: 2px solid var(--text); outline-offset: 6px; }
 button:active { transform: scale(.99); }
 .portfolio-section { padding: 112px 0 120px; }
 .portfolio-header { padding: 0 6vw 24px; max-width: 1600px; margin: auto; }
-.portfolio-header h2, .featured-copy h3, .artist-name, .site-footer > p, .viewer-info h2 { font-family: var(--font-display), 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 700; letter-spacing: -.02em; line-height: .98; }
+.portfolio-header h2, .featured-copy h2, .artist-name, .site-footer > p, .viewer-info h2 { font-family: var(--font-display), 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 700; letter-spacing: -.02em; line-height: .98; }
 .portfolio-header h2 { font-size: clamp(72px, 8.4vw, 138px); }
 .portfolio-header > p { margin-top: 24px; color: var(--muted); line-height: 1.7; font-size: 14px; }
 .featured-scene { min-height: 100dvh; padding: 50px 6vw; display: grid; grid-template-columns: 1.15fr .85fr; gap: 10vw; align-items: center; background: var(--surface); }
@@ -154,7 +154,7 @@ button:active { transform: scale(.99); }
 .work-title { display: block; font-size: 14px; color: var(--text); }
 .work-category { display: block; margin-top: 8px; font-size: 10px; }
 .featured-copy { max-width: 340px; }
-.featured-copy h3 { font-size: clamp(60px, 6.2vw, 100px); }
+.featured-copy h2 { margin-block: 1em; font-size: clamp(60px, 6.2vw, 100px); }
 .scene-narrative { position: relative; min-height: 56px; margin: 30px 0; }
 .scene-narrative p { font-size: 16px; line-height: 1.6; }
 .scene-detail { position: absolute; top: 0; opacity: 0; }
@@ -207,7 +207,7 @@ button:active { transform: scale(.99); }
 .viewer-image-error a { display: block; text-decoration: underline; }
 @media (min-width: 768px) and (max-height: 700px) {
   .featured-scene { padding: 30px 6vw; }
-  .featured-copy h3 { font-size: 65px; }
+  .featured-copy h2 { font-size: 65px; }
   .scene-narrative { margin: 18px 0; }
 }
 @media (max-width: 767px) {
@@ -222,8 +222,8 @@ button:active { transform: scale(.99); }
   .featured-scene { display: flex; flex-direction: column; gap: 28px; align-items: stretch; padding: 0 20px; min-height: auto; }
   .featured-artwork { width: 100%; }
   .featured-copy { max-width: none; }
-  .featured-copy h3 { font-size: 46px; }
-  .featured-copy h3 br { display: none; }
+  .featured-copy h2 { font-size: 46px; }
+  .featured-copy h2 br { display: none; }
   .scene-narrative { min-height: auto; margin: 18px 0; }
   .scene-narrative p { font-size: 14px; }
   .scene-detail { display: none; }
