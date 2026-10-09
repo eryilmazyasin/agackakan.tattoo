@@ -1,0 +1,401 @@
+:root { color-scheme: dark; --surface: #151515; --text: #efefeb; --muted: #b3b3ad; --line: #454541; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--surface); color: var(--text); font-family: Arial, Helvetica, sans-serif; }
+a { color: inherit; text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a:focus-visible { outline: 2px solid var(--text); outline-offset: 7px; }
+a:active { transform: translateY(1px); }
+figure, p, h1, h2 { margin: 0; }
+img { object-fit: cover; }
+.opening { position: relative; min-height: calc(100dvh - 58px); isolation: isolate; }
+.site-header { position: relative; z-index: 2; height: 104px; padding-top: 24px; margin: 0 4.2vw; display: flex; align-items: center; gap: 32px; }
+.brand { display: block; flex-shrink: 0; line-height: 0; }
+.brand img { object-fit: contain; width: 80px; height: 80px; }
+.header-location { color: var(--muted); font-size: 12px; }
+.appointment { font-size: 12px; white-space: nowrap; border-bottom: 1px solid var(--line); padding: 10px 0; }
+.appointment span { margin-left: 18px; font-size: 18px; }
+.eyebrow { color: var(--muted); text-transform: uppercase; font-size: 11px; letter-spacing: .16em; }
+h1 { font-family: var(--font-display), 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 700; letter-spacing: -.025em; line-height: .95; }
+h1 span { display: block; }
+.text-link { display: inline-flex; align-items: center; gap: 44px; padding: 16px 0; border-bottom: 1px solid #a9a9a2; font-size: 13px; white-space: nowrap; transition: gap .25s ease; }
+.text-link:hover { gap: 54px; }
+.text-link span { font-size: 24px; }
+.artwork-scene { max-width: 1600px; margin: auto; display: grid; grid-template-columns: 1.08fr 1fr; align-items: center; gap: 4vw; padding: 20px 6vw 34px; min-height: calc(100dvh - 138px); }
+.artwork-copy { align-self: center; padding-bottom: 24px; }
+.artwork-copy .eyebrow { margin-bottom: 30px; }
+.artwork-copy h1 { font-size: clamp(68px, 7.8vw, 128px); }
+.artwork-copy h1 span:last-child { color: #aaa9a1; }
+.artwork-support { margin-top: 34px; }
+.artwork-support p, .artist-support p { font-size: 14px; line-height: 1.7; color: var(--muted); margin-bottom: 20px; }
+.artwork-figure { width: 100%; max-width: 590px; justify-self: end; }
+.artwork-image { height: min(70dvh, 740px); width: 100%; position: relative; background: #282a27; }
+.artwork-image img { object-fit: contain; }
+figcaption { color: var(--muted); font-size: 10px; }
+.artwork-figure figcaption { display: flex; justify-content: space-between; padding-top: 14px; }
+.preview-navigation { position: relative; z-index: 3; min-height: 58px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 8px 20px; border-top: 1px solid #333330; background: #1b1b1b; }
+.preview-label { color: #a3a39d; font-size: 10px; margin-right: 22px; }
+.preview-navigation a { padding: 10px 16px; font-size: 11px; border: 1px solid transparent; white-space: nowrap; }
+.preview-navigation a span { margin-left: 8px; }
+.preview-navigation a[aria-current] { border-color: #70706a; background: #282826; }
+.preview-navigation a:hover { background: #333330; }
+.artist-photo { position: absolute; z-index: 0; right: 0; top: 0; bottom: 0; width: 66%; }
+.artist-photo::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, #151515 0%, rgb(21 21 21 / .65) 13%, transparent 43%), linear-gradient(0deg, rgb(21 21 21 / .8), transparent 26%); }
+.artist-photo img { filter: saturate(.65); }
+.artist-scene { position: relative; z-index: 2; min-height: calc(100dvh - 138px); padding: 6dvh 6vw 40px; display: flex; align-items: center; }
+.artist-copy { padding-bottom: 42px; }
+.artist-copy .eyebrow { margin-bottom: 26px; }
+.artist-copy h1 { font-size: clamp(80px, 9.6vw, 156px); }
+.artist-copy h1 span:last-child { margin-left: 5.5vw; }
+.artist-support { margin-top: 30px; }
+.hands-detail { position: absolute; right: 4.2vw; bottom: 32px; width: 15vw; max-width: 210px; }
+.hands-image { position: relative; height: 16dvh; min-height: 100px; border: 4px solid #151515; }
+.hands-image img { filter: saturate(.65); }
+.hands-detail figcaption { margin-top: 9px; }
+.comparison { padding: 28px 5vw 60px; max-width: 1440px; margin: auto; }
+.comparison-header { display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: 12px; }
+.comparison-header img { object-fit: contain; }
+.comparison h1 { font-size: clamp(62px, 7vw, 96px); margin: 30px 0 20px; }
+.comparison-intro { color: var(--muted); font-size: 14px; line-height: 1.7; max-width: 440px; }
+.direction-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 38px; }
+.direction-b { margin-top: 70px; }
+.direction-image { position: relative; height: 390px; background: #252522; overflow: hidden; }
+.direction-a img { object-fit: contain; }
+.direction-b img { object-position: 50% 52%; }
+.direction-caption { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding-top: 18px; }
+.direction-caption h2 { font-size: 17px; font-weight: 400; }
+.direction-caption span { font-size: 23px; }
+.direction-caption p { color: var(--muted); font-size: 12px; grid-column: 1 / -1; }
+@media (min-width: 768px) and (max-height: 700px) {
+  .artwork-scene { padding-top: 8px; padding-bottom: 22px; }
+  .artwork-copy h1 { font-size: 7vw; }
+  .artwork-support { margin-top: 20px; }
+  .artist-scene { padding-top: 20px; }
+  .artist-copy h1 { font-size: 8vw; }
+  .artist-copy { padding-bottom: 10px; }
+}
+@media (max-width: 767px) {
+  .site-header { height: 88px; padding-top: 16px; margin: 0 20px; gap: 14px; }
+  .brand img { width: 68px; height: 68px; }
+  .header-location { display: none; }
+  .appointment { font-size: 11px; }
+  .appointment span { margin-left: 10px; }
+  .opening { min-height: calc(100dvh - 58px); }
+  .artwork-scene { display: flex; flex-direction: column; align-items: stretch; gap: 0; padding: 12px 20px 24px; min-height: auto; }
+  .artwork-copy { display: contents; }
+  .artwork-copy .eyebrow { font-size: 9px; margin: 4px 0 16px; }
+  .artwork-copy h1 { font-size: clamp(52px, 14.5vw, 98px); margin-bottom: 22px; }
+  .artwork-figure { order: 1; max-width: none; }
+  .artwork-image { height: 42dvh; min-height: 240px; }
+  .artwork-support { order: 2; margin-top: 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .artwork-support p { font-size: 11px; margin: 0; }
+  .artwork-support .text-link { font-size: 11px; gap: 12px; padding: 10px 0; }
+  .artwork-figure figcaption { padding-top: 9px; font-size: 9px; }
+  .preview-navigation { gap: 6px; padding: 9px 12px; }
+  .preview-label { display: none; }
+  .preview-navigation a { font-size: 11px; padding: 10px 12px; }
+  .artist-photo { width: 100%; top: 72px; bottom: 0; }
+  .artist-photo img { object-position: 56% 44% !important; }
+  .artist-photo::after { background: linear-gradient(180deg, #151515, transparent 30%, transparent 45%, #151515 91%), linear-gradient(90deg, rgb(21 21 21 / .2), transparent); }
+  .artist-scene { min-height: calc(100dvh - 130px); padding: 22px 20px 25px; align-items: stretch; }
+  .artist-copy { padding: 0; display: flex; flex-direction: column; width: 100%; }
+  .artist-copy .eyebrow { margin-bottom: 16px; font-size: 9px; }
+  .artist-copy h1 { font-size: clamp(64px, 19vw, 112px); }
+  .artist-copy h1 span:last-child { margin-left: 20vw; }
+  .artist-support { margin-top: auto; padding-top: 270px; }
+  .artist-support p { font-size: 12px; margin-bottom: 7px; }
+  .artist-support .text-link { font-size: 12px; padding: 10px 0; gap: 32px; }
+  .hands-detail { width: 26vw; right: 20px; bottom: 30px; }
+  .hands-image { height: 100px; min-height: 0; }
+  .hands-detail figcaption { font-size: 8px; line-height: 1.5; }
+  .comparison { padding: 20px 20px 40px; }
+  .comparison-header p { font-size: 10px; }
+  .direction-grid { grid-template-columns: 1fr; gap: 38px; }
+  .direction-b { margin-top: 0; }
+  .direction-image { height: 360px; }
+}
+@media (max-width: 360px) {
+  /* Keep the detail frame clear of appointment copy on narrow phones. */
+  .hands-detail { top: 330px; bottom: auto; width: 74px; }
+  .hands-image { height: 82px; }
+  .hands-detail figcaption { display: none; }
+  .artist-support { padding-top: 240px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* Selected B direction: the hero keeps its composition; the page continues as a photographic exhibition. */
+html { scroll-padding-top: 24px; scrollbar-gutter: stable; }
+.site-navigation { display: flex; gap: 28px; font-size: 12px; }
+.site-navigation a { padding: 12px 0; }
+.site-navigation a:hover { color: var(--muted); }
+.prototype .opening { min-height: 100dvh; }
+.prototype .artist-scene { min-height: calc(100dvh - 104px); }
+.skip-link { position: absolute; left: 20px; top: 12px; padding: 12px 18px; background: var(--text); color: var(--surface); transform: translateY(-180%); }
+.skip-link:focus { transform: none; position: fixed; }
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible { outline: 2px solid var(--text); outline-offset: 6px; }
+button:active { transform: scale(.99); }
+.portfolio-section { padding: 112px 0 120px; }
+.portfolio-header { padding: 0 6vw 24px; max-width: 1600px; margin: auto; }
+.portfolio-header h2, .featured-copy h3, .artist-name, .site-footer > p, .viewer-info h2 { font-family: var(--font-display), 'Arial Narrow', sans-serif; text-transform: uppercase; font-weight: 700; letter-spacing: -.02em; line-height: .98; }
+.portfolio-header h2 { font-size: clamp(72px, 8.4vw, 138px); }
+.portfolio-header > p { margin-top: 24px; color: var(--muted); line-height: 1.7; font-size: 14px; }
+.featured-scene { min-height: 100dvh; padding: 50px 6vw; display: grid; grid-template-columns: 1.15fr .85fr; gap: 10vw; align-items: center; background: var(--surface); }
+.featured-artwork { width: min(100%, 640px, 72dvh); justify-self: center; }
+.work-button { display: block; width: 100%; border: 0; background: transparent; padding: 0; text-align: left; }
+.work-image { position: relative; display: block; width: 100%; aspect-ratio: var(--work-ratio); background: #232522; overflow: hidden; }
+.work-image img { object-fit: contain; }
+.work-image .work-monochrome { filter: grayscale(1) brightness(.72) contrast(1.16); }
+.work-image .work-color { opacity: 0; transition: opacity .65s ease; }
+.work-button:is(:hover, :focus-visible) .work-color { opacity: 1; }
+.work-button:hover .work-image { outline: 1px solid #77776e; outline-offset: 5px; }
+.featured-artwork figcaption, .work figcaption { display: flex; justify-content: space-between; align-items: start; gap: 20px; padding-top: 18px; }
+.work-title { display: block; font-size: 14px; color: var(--text); }
+.work-category { display: block; margin-top: 8px; font-size: 10px; }
+.featured-copy { max-width: 340px; }
+.featured-copy h3 { font-size: clamp(60px, 6.2vw, 100px); }
+.scene-narrative { position: relative; min-height: 56px; margin: 30px 0; }
+.scene-narrative p { font-size: 16px; line-height: 1.6; }
+.scene-detail { position: absolute; top: 0; opacity: 0; }
+.featured-description { color: var(--muted); font-size: 13px; line-height: 1.8; max-width: 280px; }
+.text-button { border: 0; border-bottom: 1px solid #a9a9a2; background: transparent; padding: 15px 0; margin-top: 20px; font-size: 13px; white-space: nowrap; }
+.works-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 100px 12vw; align-items: start; max-width: 1440px; padding: 70px 8vw 0; margin: auto; }
+.work-portre { width: 100%; max-width: 512px; }
+.work-eros { width: 100%; max-width: 380px; margin-top: 230px; }
+.work-pegasus { width: 78%; margin-left: 6vw; }
+.work-heykel { width: 100%; margin-top: 170px; }
+.artist-section { padding: 80px 6vw 120px; border-top: 1px solid #333330; }
+.artist-introduction { display: grid; grid-template-columns: 1fr 1.15fr; grid-template-rows: auto 1fr; gap: 36px 7vw; max-width: 1440px; margin: auto; align-items: start; }
+.artist-name { font-size: clamp(88px, 10.5vw, 164px); }
+.artist-name span { display: block; }
+.artist-name span:last-child { color: #aaa9a1; }
+.artist-portrait { grid-column: 2; grid-row: 1 / 3; }
+.artist-portrait img { display: block; width: 100%; height: auto; }
+.artist-portrait figcaption { margin-top: 14px; }
+.artist-biography { align-self: end; padding-bottom: 30px; }
+.artist-biography p:first-child { font-size: clamp(20px, 2vw, 30px); line-height: 1.4; }
+.artist-biography p:last-child:not(:first-child) { color: var(--muted); font-size: 13px; line-height: 1.8; margin-top: 30px; }
+.process-pair { display: grid; grid-template-columns: 1.2fr .8fr; gap: 12vw; align-items: end; padding: 110px 7vw 0 0; max-width: 1440px; margin: auto; }
+.process-image { position: relative; width: 100%; aspect-ratio: 4 / 5; background: #222; }
+.process-detail .process-image { aspect-ratio: 1; }
+.process-pair figcaption { margin-top: 25px; }
+.process-pair h3 { color: var(--text); font-size: 19px; font-weight: 400; }
+.process-pair figcaption p { font-size: 12px; line-height: 1.7; margin-top: 10px; max-width: 260px; }
+.site-footer { border-top: 1px solid #333330; padding: 64px 6vw 35px; }
+.site-footer > p { font-size: clamp(56px, 7vw, 108px); }
+.site-footer > .text-link { margin-top: 24px; }
+.footer-details { margin-top: 70px; display: flex; align-items: center; gap: 32px; color: var(--muted); font-size: 11px; }
+.footer-details a { margin-left: auto; }
+.mobile-contact-dock { display: none; }
+.portfolio-empty { padding: 100px 6vw; }
+.artwork-viewer { width: 100%; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: transparent; color: var(--text); overflow: hidden; }
+.artwork-viewer::backdrop { background: transparent; }
+.viewer-scrim { position: absolute; inset: 0; background: #111; }
+.viewer-layout { position: relative; pointer-events: none; display: grid; grid-template-columns: 1.3fr .7fr; gap: 7vw; align-items: center; height: 100%; padding: 70px 8vw; }
+.viewer-frame { position: relative; pointer-events: auto; width: min(62vw, calc(72dvh * var(--photo-ratio)), var(--photo-width)); aspect-ratio: var(--photo-ratio); justify-self: center; overflow: hidden; background: #292a26; }
+.viewer-photo { position: absolute; inset: 0; background: linear-gradient(120deg, #292a26, #393a36); }
+.viewer-photo img { object-fit: contain; }
+.viewer-close { position: absolute; top: 26px; right: 4vw; border: 1px solid #696961; background: #242422; padding: 10px 18px; font-size: 12px; }
+.viewer-close span { margin-left: 25px; font-size: 22px; vertical-align: middle; }
+.viewer-info { pointer-events: auto; max-width: 350px; }
+.viewer-category { color: var(--muted); font-size: 11px; }
+.viewer-info h2 { font-size: clamp(38px, 4vw, 64px); margin: 22px 0; }
+.viewer-info > p:last-of-type { color: var(--muted); line-height: 1.8; font-size: 13px; }
+.viewer-source { display: inline-block; margin-top: 32px; font-size: 11px; color: var(--muted); padding: 8px 0; }
+.viewer-image-error { position: absolute; inset: 0; padding: 25px; background: #292a26; font-size: 14px; line-height: 1.8; }
+.viewer-image-error a { display: block; text-decoration: underline; }
+@media (min-width: 768px) and (max-height: 700px) {
+  .featured-scene { padding: 30px 6vw; }
+  .featured-copy h3 { font-size: 65px; }
+  .scene-narrative { margin: 18px 0; }
+}
+@media (max-width: 767px) {
+  .site-navigation { gap: 18px; font-size: 11px; }
+  .site-navigation a:last-child { display: none; }
+  .prototype .artist-scene { min-height: calc(100dvh - 88px); padding-bottom: 82px; }
+  .prototype .hands-detail { bottom: 86px; }
+  .portfolio-section { padding: 70px 0 80px; }
+  .portfolio-header { padding: 0 20px 42px; }
+  .portfolio-header h2 { font-size: clamp(56px, 15vw, 100px); }
+  .portfolio-header > p { margin-top: 22px; font-size: 12px; }
+  .featured-scene { display: flex; flex-direction: column; gap: 28px; align-items: stretch; padding: 0 20px; min-height: auto; }
+  .featured-artwork { width: 100%; }
+  .featured-copy { max-width: none; }
+  .featured-copy h3 { font-size: 46px; }
+  .featured-copy h3 br { display: none; }
+  .scene-narrative { min-height: auto; margin: 18px 0; }
+  .scene-narrative p { font-size: 14px; }
+  .scene-detail { display: none; }
+  .featured-description { max-width: 340px; }
+  .text-button { margin-top: 14px; }
+  .works-grid { grid-template-columns: 1fr; padding: 65px 20px 0; gap: 48px; }
+  .work-portre, .work-eros, .work-pegasus, .work-heykel { max-width: none; width: 100%; margin: 0; }
+  .work-title { font-size: 13px; }
+  .work-category { font-size: 9px; }
+  .artist-section { padding: 60px 20px 70px; }
+  .artist-introduction { display: flex; flex-direction: column; gap: 30px; }
+  .artist-name { font-size: clamp(80px, 21vw, 140px); }
+  .artist-name span:last-child { margin-left: 14vw; }
+  .artist-portrait { width: 100%; }
+  .artist-biography { align-self: stretch; display: flex; justify-content: space-between; gap: 20px; padding: 0; }
+  .artist-biography p:first-child { font-size: 17px; }
+  .artist-biography p:last-child:not(:first-child) { font-size: 11px; margin-top: 0; }
+  .process-pair { grid-template-columns: 1fr; gap: 44px; padding: 65px 0 0; }
+  .process-pair h3 { font-size: 18px; }
+  .process-pair figcaption { margin-top: 18px; }
+  .site-footer { padding: 44px 20px 100px; }
+  .site-footer > p { font-size: 15vw; }
+  .footer-details { margin-top: 42px; gap: 16px; flex-wrap: wrap; font-size: 10px; }
+  .footer-details a { margin-left: 0; }
+  .mobile-contact-dock { position: fixed; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; align-items: center; gap: 20px; background: #1b1b19; border-top: 1px solid #454541; padding: 16px 20px max(16px, env(safe-area-inset-bottom)); font-size: 12px; }
+  .mobile-contact-dock a { padding: 4px 0; white-space: nowrap; }
+  .viewer-layout { display: flex; flex-direction: column; align-items: center; gap: 22px; padding: 72px 20px 24px; justify-content: center; }
+  .viewer-frame { width: min(90vw, calc(51dvh * var(--photo-ratio)), var(--photo-width)); flex-shrink: 0; }
+  .viewer-close { right: 20px; top: 16px; padding: 6px 12px; }
+  .viewer-info { width: 100%; max-width: 500px; }
+  .viewer-info h2 { font-size: 34px; margin: 12px 0; }
+  .viewer-info > p:last-of-type { font-size: 11px; line-height: 1.6; }
+  .viewer-category { font-size: 10px; }
+  .viewer-source { margin-top: 12px; }
+}
+@media (max-width: 360px) {
+  .site-navigation { display: none; }
+  .prototype .hands-detail { bottom: auto; }
+  .viewer-layout { padding-top: 64px; gap: 16px; }
+  .viewer-frame { width: min(88vw, calc(43dvh * var(--photo-ratio)), var(--photo-width)); }
+  .viewer-info h2 { font-size: 29px; }
+}
+@media (min-width: 768px) and (max-height: 600px) {
+  .viewer-layout { padding: 60px 4vw 24px; gap: 5vw; }
+  .viewer-info h2 { font-size: 38px; margin: 12px 0; }
+  .viewer-source { margin-top: 18px; }
+}
+@media (max-width: 360px) {
+  .artist-name { font-size: 22vw; }
+  .artist-name span:last-child { margin-left: 10vw; }
+}
+
+/* Full photographs drift at different depths; scrolling remains entirely native. */
+.works-grid .work { width: 100%; max-width: none; margin: 0; }
+.works-grid .work:nth-child(2n) { margin-top: 160px; }
+.works-grid .work:nth-child(4n + 3) { width: 84%; justify-self: end; }
+.works-grid .work:nth-child(4n) { width: 94%; }
+.artist-photo { overflow: hidden; }
+.artist-photo img { transform: scale(1.06); }
+[data-parallax] { translate: 0 var(--parallax-y, 0px); }
+.work:nth-child(2n) { --parallax-start: 36px; --parallax-end: -36px; }
+.work:nth-child(2n + 1) { --parallax-start: -36px; --parallax-end: 36px; }
+.featured-artwork { --parallax-start: -24px; --parallax-end: 24px; }
+.artist-photo { --parallax-start: -18px; --parallax-end: 18px; }
+.artist-portrait { --parallax-start: -20px; --parallax-end: 20px; }
+.process-placement { --parallax-start: -28px; --parallax-end: 28px; }
+.process-detail { --parallax-start: 28px; --parallax-end: -28px; }
+@keyframes photo-parallax { from { translate: 0 var(--parallax-start); } to { translate: 0 var(--parallax-end); } }
+@keyframes title-arrival { from { opacity: .4; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  .opening [data-title-line] { animation: title-arrival .8s cubic-bezier(.22,1,.36,1) both; }
+  .opening [data-title-line]:last-child { animation-delay: .1s; }
+  @supports (animation-timeline: view()) {
+    [data-parallax] { animation: photo-parallax linear both; animation-timeline: view(); animation-range: entry 0% exit 100%; }
+  }
+}
+@media (max-width: 767px) {
+  .works-grid .work:nth-child(n) { width: 100%; margin: 0; }
+  [data-parallax] { --parallax-start: -6px; --parallax-end: 6px; }
+  /* On touch devices the original is available on press and in the full-photo viewer. */
+  .work-button:active .work-color { opacity: 1; }
+  .viewer-layout { overflow-y: auto; justify-content: safe center; }
+  .viewer-frame { width: min(90vw, calc(45dvh * var(--photo-ratio)), var(--photo-width)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-parallax] { translate: none !important; }
+}
+
+/* A single photographic field connects the portrait, placement and working hands. */
+/* The field now uses one full portrait in place of the overlapping photographic layers. */
+.artist-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: 6vw; align-items: center; max-width: 1440px; margin: auto; }
+.artist-story { position: relative; z-index: 1; }
+.artist-story .artist-name { font-size: clamp(80px, 9.8vw, 150px); }
+.artist-story .artist-biography { padding: 42px 0 0; }
+.artist-process-copy { margin-top: 28px; max-width: 310px; color: var(--muted); font-size: 13px; line-height: 1.8; }
+.artist-composition { width: 100%; }
+.artist-canvas { position: relative; width: 100%; }
+.artist-canvas img { display: block; width: 100%; height: auto; filter: grayscale(1) brightness(.78) contrast(1.1); }
+.artist-composition figcaption { margin-top: 12px; font-size: 11px; line-height: 1.6; }
+.footer-contact { display: grid; grid-template-columns: 1fr .75fr; gap: 8vw; margin-top: 42px; padding-bottom: 40px; }
+.footer-channels { display: flex; flex-direction: column; align-items: start; gap: 24px; }
+.footer-whatsapp { display: inline-flex; align-items: center; gap: 14px; padding: 8px 0; }
+.footer-whatsapp svg { flex-shrink: 0; }
+.footer-phone { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; padding: 8px 0; }
+.footer-channel-label, .footer-instagram { display: inline-flex; align-items: center; gap: 14px; }
+.footer-channels svg { flex-shrink: 0; }
+.footer-instagram { padding: 8px 0; }
+.footer-channels > a { font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--text); }
+.footer-address { font-style: normal; max-width: 370px; }
+.footer-address > span { font-size: 15px; }
+.footer-address p { color: var(--muted); font-size: 13px; line-height: 1.8; margin-top: 16px; }
+.footer-address a { display: inline-block; padding: 12px 0 8px; margin-top: 14px; font-size: 12px; border-bottom: 1px solid var(--line); }
+.site-footer .footer-details { margin-top: 24px; }
+@media (max-width: 767px) {
+  .artist-layout { grid-template-columns: 1fr; gap: 28px; }
+  .artist-story .artist-name { font-size: clamp(72px, 21vw, 140px); }
+  .artist-story .artist-biography { padding-top: 28px; }
+  .artist-process-copy { margin-top: 20px; font-size: 12px; }
+  .artist-composition figcaption { font-size: 10px; }
+  .footer-contact { grid-template-columns: 1fr; gap: 42px; margin-top: 30px; padding-bottom: 28px; }
+  .footer-channels { gap: 18px; }
+  .footer-phone { gap: 16px; }
+  .footer-address p { font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .artist-story .artist-name { font-size: 22vw; }
+}
+
+/* The left-aligned navigation retains a dark backing when photography extends underneath it. */
+.header-links { display: flex; align-items: center; gap: 36px; padding: 0 22px; background: rgb(21 21 21 / .94); }
+.header-links .site-navigation { gap: 28px; font-size: 13px; }
+.header-links .site-navigation a { padding: 18px 0; }
+.header-links .appointment { border-bottom: 0; border-left: 1px solid var(--line); padding: 8px 0 8px 24px; font-size: 13px; }
+.header-links a { transition: color .2s ease; }
+.header-links a:hover { color: #fff; }
+@media (max-width: 767px) {
+  .site-header { gap: 14px; }
+  .header-links { gap: 14px; padding: 0 12px; }
+  .header-links .site-navigation { display: flex; font-size: 11px; }
+  .header-links .site-navigation a { padding: 15px 0; }
+  .header-links .appointment { padding-left: 12px; font-size: 11px; }
+}
+
+/* Traditional flash stays behind the headline and drifts independently of the working portrait. */
+.opening-artist { overflow: clip; }
+.artist-copy { position: relative; z-index: 1; }
+
+
+/* The flash now fills the letterforms; only its background moves, never the heading itself. */
+/* The headline now uses a solid text color after removal of the decorative fill. */
+.hero-title { background: none; color: var(--text); -webkit-text-fill-color: currentColor; }
+/* Soft edges integrate the vertical film with the portrait and keep the headline legible. */
+@media (forced-colors: active) {
+  .hero-title { background: none; color: CanvasText; -webkit-text-fill-color: CanvasText; }
+}
+
+/* Three distinct planes give the film, typography and artist room to breathe. */
+/* The standalone film keeps its original vertical composition without covering hero text. */
+.tattoo-film-section { position: relative; isolation: isolate; overflow: clip; min-height: 104dvh; display: grid; grid-template-columns: 1fr; align-items: center; padding: 100px 6vw 100px 52vw; }
+/* The oversized moving crop dissolves into the page rather than defining a player rectangle. */
+.tattoo-film-frame { position: absolute; z-index: -1; inset: 0 auto 0 0; width: 68%; pointer-events: none; mask-image: linear-gradient(90deg, #000 40%, transparent 100%); }
+.tattoo-film-frame video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; filter: grayscale(1) brightness(.72) contrast(1.08); }
+.tattoo-film-frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, #151515, transparent 18%, transparent 75%, #151515), linear-gradient(90deg, rgb(21 21 21 / .1), transparent 30%, #151515); }
+.tattoo-film-copy { position: relative; max-width: 640px; }
+.tattoo-film-copy h2 { font-family: var(--font-display), 'Arial Narrow', sans-serif; font-size: clamp(80px, 8.4vw, 156px); line-height: .95; text-transform: uppercase; letter-spacing: -.025em; }
+.tattoo-film-copy h2 span { color: var(--muted); }
+.tattoo-film-copy p { font-size: 14px; line-height: 1.8; max-width: 310px; margin: 36px 0 20px; color: var(--muted); }
+@media (max-width: 767px) {
+  .tattoo-film-section { min-height: 105dvh; padding: 58dvh 24px 80px; align-items: start; }
+  .tattoo-film-frame { inset: 0 0 auto; width: 100%; height: 80dvh; mask-image: linear-gradient(180deg, #000 45%, transparent 100%); }
+  .tattoo-film-frame video { object-position: 50% 42%; }
+  .tattoo-film-frame::after { background: linear-gradient(180deg, #151515, transparent 15%, transparent 50%, #151515); }
+  .tattoo-film-copy h2 { font-size: clamp(68px, 19vw, 116px); }
+  .tattoo-film-copy p { font-size: 13px; margin-top: 26px; }
+}
