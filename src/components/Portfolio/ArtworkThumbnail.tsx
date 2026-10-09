@@ -9,7 +9,8 @@ export function ArtworkThumbnail({ artwork, featured = false }: ArtworkThumbnail
     <figure className={featured ? "featured-artwork" : `work work-${artwork.id}`} data-parallax={featured ? "24" : "36"} style={{ "--work-ratio": visibleWidth / artwork.height } as CSSProperties}>
       <button type="button" className="work-button" data-artwork-id={artwork.id} aria-label={`${artwork.title} Tam fotoğrafı incele`} aria-haspopup="dialog">
         <span className="work-image" data-artwork-image>
-          <Image className="work-monochrome" src={artwork.src} alt={artwork.alt} fill sizes={featured ? "(max-width: 767px) 90vw, 44vw" : "(max-width: 767px) 90vw, 38vw"} style={imageStyle} />
+          {/* Load the visible layer ahead of scrolling so mobile gallery navigation never lands on empty frames. */}
+          <Image loading="eager" className="work-monochrome" src={artwork.src} alt={artwork.alt} fill sizes={featured ? "(max-width: 767px) 90vw, 44vw" : "(max-width: 767px) 90vw, 38vw"} style={imageStyle} />
           <Image className="work-color" src={artwork.src} alt="" aria-hidden="true" fill sizes={featured ? "(max-width: 767px) 90vw, 44vw" : "(max-width: 767px) 90vw, 38vw"} style={imageStyle} />
         </span>
       </button>

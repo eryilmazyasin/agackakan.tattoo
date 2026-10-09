@@ -40,7 +40,14 @@ figcaption { color: var(--muted); font-size: 10px; }
 .preview-navigation a:hover { background: #333330; }
 .artist-photo { position: absolute; z-index: 0; right: 0; top: 0; bottom: 0; width: 66%; }
 .artist-photo::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, #151515 0%, rgb(21 21 21 / .65) 13%, transparent 43%), linear-gradient(0deg, rgb(21 21 21 / .8), transparent 26%); }
-.artist-photo img { filter: saturate(.65); }
+/* Preserve the full working portrait rather than filling the hero with a cropped close-up. */
+/* The original close-up is restored across desktop widths at the user’s request. */
+.artist-photo img { object-fit: cover; object-position: 52% 35%; filter: saturate(.65); }
+/* Wide monitors need a larger photographic field to balance the space beside the headline. */
+@media (min-width: 1600px) {
+  .artist-photo { width: 66%; }
+  .artist-photo img { object-fit: cover; object-position: 52% 35%; }
+}
 .artist-scene { position: relative; z-index: 2; min-height: calc(100dvh - 138px); padding: 6dvh 6vw 40px; display: flex; align-items: center; }
 .artist-copy { padding-bottom: 42px; }
 .artist-copy .eyebrow { margin-bottom: 26px; }
@@ -94,7 +101,7 @@ figcaption { color: var(--muted); font-size: 10px; }
   .preview-label { display: none; }
   .preview-navigation a { font-size: 11px; padding: 10px 12px; }
   .artist-photo { width: 100%; top: 72px; bottom: 0; }
-  .artist-photo img { object-position: 56% 44% !important; }
+  .artist-photo img { object-position: 14% 44% !important; }
   .artist-photo::after { background: linear-gradient(180deg, #151515, transparent 30%, transparent 45%, #151515 91%), linear-gradient(90deg, rgb(21 21 21 / .2), transparent); }
   .artist-scene { min-height: calc(100dvh - 130px); padding: 22px 20px 25px; align-items: stretch; }
   .artist-copy { padding: 0; display: flex; flex-direction: column; width: 100%; }
@@ -104,7 +111,7 @@ figcaption { color: var(--muted); font-size: 10px; }
   .artist-support { margin-top: auto; padding-top: 270px; }
   .artist-support p { font-size: 12px; margin-bottom: 7px; }
   .artist-support .text-link { font-size: 12px; padding: 10px 0; gap: 32px; }
-  .hands-detail { width: 26vw; right: 20px; bottom: 30px; }
+  .hands-detail { display: none; width: 26vw; right: 20px; bottom: 30px; }
   .hands-image { height: 100px; min-height: 0; }
   .hands-detail figcaption { font-size: 8px; line-height: 1.5; }
   .comparison { padding: 20px 20px 40px; }
@@ -302,6 +309,8 @@ button:active { transform: scale(.99); }
 }
 @media (max-width: 767px) {
   .works-grid .work:nth-child(n) { width: 100%; margin: 0; }
+  /* Keep the machine and stencil inside the narrow crop instead of enlarging the portrait. */
+  .artist-photo img { transform: none; }
   [data-parallax] { --parallax-start: -6px; --parallax-end: 6px; }
   /* On touch devices the original is available on press and in the full-photo viewer. */
   .work-button:active .work-color { opacity: 1; }
