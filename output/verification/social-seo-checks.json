@@ -1,0 +1,75 @@
+{
+  "results": [
+    {
+      "route": "/",
+      "status": 200,
+      "canonical": "https://agackakantattoo.com",
+      "og": "https://agackakantattoo.com/opengraph-image?e2f2240c8e74bc31",
+      "twitter": "https://agackakantattoo.com/opengraph-image",
+      "card": "summary_large_image"
+    },
+    {
+      "route": "/rehber",
+      "status": 200,
+      "canonical": "https://agackakantattoo.com/rehber",
+      "og": "https://agackakantattoo.com/opengraph-image",
+      "twitter": "https://agackakantattoo.com/opengraph-image",
+      "card": "summary_large_image"
+    },
+    {
+      "route": "/rehber/ilk-dovme-oncesi",
+      "status": 200,
+      "canonical": "https://agackakantattoo.com/rehber/ilk-dovme-oncesi",
+      "og": "https://agackakantattoo.com/rehber/ilk-dovme-oncesi/opengraph-image",
+      "twitter": "https://agackakantattoo.com/rehber/ilk-dovme-oncesi/opengraph-image",
+      "card": "summary_large_image"
+    },
+    {
+      "route": "/rehber/kisiye-ozel-dovme-tasarimi",
+      "status": 200,
+      "canonical": "https://agackakantattoo.com/rehber/kisiye-ozel-dovme-tasarimi",
+      "og": "https://agackakantattoo.com/rehber/kisiye-ozel-dovme-tasarimi/opengraph-image",
+      "twitter": "https://agackakantattoo.com/rehber/kisiye-ozel-dovme-tasarimi/opengraph-image",
+      "card": "summary_large_image"
+    },
+    {
+      "route": "/rehber/tam-kol-dovme-planlama",
+      "status": 200,
+      "canonical": "https://agackakantattoo.com/rehber/tam-kol-dovme-planlama",
+      "og": "https://agackakantattoo.com/rehber/tam-kol-dovme-planlama/opengraph-image",
+      "twitter": "https://agackakantattoo.com/rehber/tam-kol-dovme-planlama/opengraph-image",
+      "card": "summary_large_image"
+    },
+    {
+      "route": "/rehber/siyah-gri-dovme-secimi",
+      "status": 200,
+      "canonical": "https://agackakantattoo.com/rehber/siyah-gri-dovme-secimi",
+      "og": "https://agackakantattoo.com/rehber/siyah-gri-dovme-secimi/opengraph-image",
+      "twitter": "https://agackakantattoo.com/rehber/siyah-gri-dovme-secimi/opengraph-image",
+      "card": "summary_large_image"
+    },
+    {
+      "route": "/rehber/dovme-bolge-ve-boyut-secimi",
+      "status": 200,
+      "canonical": "https://agackakantattoo.com/rehber/dovme-bolge-ve-boyut-secimi",
+      "og": "https://agackakantattoo.com/rehber/dovme-bolge-ve-boyut-secimi/opengraph-image",
+      "twitter": "https://agackakantattoo.com/rehber/dovme-bolge-ve-boyut-secimi/opengraph-image",
+      "card": "summary_large_image"
+    },
+    {
+      "route": "/rehber/eski-dovme-kapatma",
+      "status": 200,
+      "canonical": "https://agackakantattoo.com/rehber/eski-dovme-kapatma",
+      "og": "https://agackakantattoo.com/rehber/eski-dovme-kapatma/opengraph-image",
+      "twitter": "https://agackakantattoo.com/rehber/eski-dovme-kapatma/opengraph-image",
+      "card": "summary_large_image"
+    }
+  ],
+  "sitemapUrls": 8,
+  "robots": "User-Agent: *\nAllow: /\n\nSitemap: https://agackakantattoo.com/sitemap.xml\n",
+  "wwwRedirect": {
+    "status": 308,
+    "location": "https://agackakantattoo.com/rehber/ilk-dovme-oncesi"
+  },
+  "sharingImages": "All eight Open Graph and Twitter sources returned 1200x630 PNG under 5MB in the image check"
+}

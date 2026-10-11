@@ -33,12 +33,22 @@ Masaüstü ve mobil ekran görüntüleri `output/playwright/` klasöründedir. K
 
 ## SEO ve yayın yapılandırması
 
-Next.js Metadata API ile başlık, açıklama, canonical, Open Graph ve Twitter kartları sunucuda üretilir. `/opengraph-image` stüdyo görsellerinden 1200 × 630 paylaşım kartı oluşturur. Ana sayfanın JSON-LD verisi stüdyo adresini, telefonu, sanatçıyı ve eser görsellerini tanımlar. `/robots.txt` ve `/sitemap.xml` Next.js metadata rotalarıdır; sitemap yalnızca ana sayfayı ve eser görsellerini içerir. Tasarım alternatifleri `/a` ve `/b` her ortamda `noindex` kullanır.
+Next.js Metadata API ile başlık, açıklama, canonical, Open Graph ve Twitter kartları sunucuda üretilir. `/opengraph-image` stüdyo görsellerinden 1200 × 630 paylaşım kartı oluşturur. Ana sayfanın JSON-LD verisi stüdyo adresini, telefonu, sanatçıyı ve eser görsellerini tanımlar. `/robots.txt` ve `/sitemap.xml` Next.js metadata rotalarıdır; sitemap ana sayfayı, rehber listesini, altı yazıyı ve ilgili eser görsellerini içerir. Tasarım alternatifleri `/a` ve `/b` her ortamda `noindex` kullanır.
 
 Yayın öncesinde `.env.example` dosyasını temel alarak sunucu ortam değişkenlerini ayarlayın:
 
-- `SITE_URL`: HTTPS dahil gerçek yayın alan adı; alt yol, sorgu veya fragment içermemeli. Bu değer **üretim derlemesinden önce** tanımlanmalıdır.
+- `SITE_URL`: varsayılan yayın adresi `https://agackakantattoo.com`. Ortam değişkeni bu değeri değiştirebilir; alt yol, sorgu veya fragment içermemeli. Değişiklik **üretim derlemesinden önce** yapılmalıdır.
 - `SEO_INDEXABLE=false`: test/staging ortamlarını indekslemeye kapatır. Yerel adresler ve Vercel preview ortamları otomatik olarak kapalıdır. Üretimde gerçek `SITE_URL` ile bu değer `true` olmalıdır.
 - `GOOGLE_SITE_VERIFICATION` ve `BING_SITE_VERIFICATION`: isteğe bağlı site sahipliği doğrulama kodları; HTML etiketinin tamamını değil, content değerini kullanın.
 
-Değişkenler güncellendiğinde tekrar `npm run build` çalıştırın. Alan adı ayarlanmadan yapılan derleme yerel önizleme adresini kullanır ve indekslemeye kapalı kalır. Yayın sonrasında Search Console ve Bing Webmaster Tools üzerinden siteyi doğrulayın ve `/sitemap.xml` adresini gönderin. Adres/telefon veya eser değişiklikleri `src/content/site.ts` ve `src/content/seo.ts` içinde tutarlı güncellenmelidir. Doğrulanmamış değerlendirme, çalışma saati veya konum koordinatı yapılandırılmış veriye eklenmez.
+Değişkenler güncellendiğinde tekrar `npm run build` çalıştırın. Üretim derlemesi varsayılan olarak `https://agackakantattoo.com` adresini kullanır. Geliştirme sunucusu gerçek canonical adresleriyle çalışsa da indekslemeye kapalı kalır. Yayın sonrasında Search Console ve Bing Webmaster Tools üzerinden siteyi doğrulayın ve `/sitemap.xml` adresini gönderin. Adres/telefon veya eser değişiklikleri `src/content/site.ts` ve `src/content/seo.ts` içinde tutarlı güncellenmelidir. Doğrulanmamış değerlendirme, çalışma saati veya konum koordinatı yapılandırılmış veriye eklenmez.
+
+## Dövme Rehberi
+
+`/rehber` ayrı bir içerik alanıdır; ana sayfadan footer bağlantısıyla erişilir. Altı özgün yazı `src/content/guides.ts` içinde tutulur. Yazılarda konuya özgü metadata, paylaşım görseli, BlogPosting ve BreadcrumbList JSON-LD, içindekiler ve ilgili yazı bağlantıları bulunur. Yayın tarihleri editoryal tarihtir; derleme sırasında değiştirilmez. Araştırma ve doğrulama notları `output/verification/guide-editorial-notes.md` dosyasındadır.
+
+## Alan adı ve sosyal paylaşım
+
+Canonical alan adı `https://agackakantattoo.com`. `www.agackakantattoo.com` istekleri yol korunarak 308 ile bu adrese yönlendirilir. Her iki alan adı barındırma hizmetine bağlanmalı ve HTTPS sertifikaları etkin olmalıdır; uygulama ayarları DNS/sertifika kurulumu yapmaz. Önizleme ortamında `SEO_INDEXABLE=false` kullanın.
+
+Ana sayfa ve rehber listesi markalı 1200 × 630 PNG paylaşım kartını, yazılar kendi başlık/görsel kartını kullanır. Open Graph ve X/Twitter `summary_large_image` etiketleri aynı HTTPS kaynağına bağlanır. Yayından sonra Facebook Sharing Debugger / LinkedIn Post Inspector ile gerçek URL ve kart önbelleği kontrol edilebilir. Paylaşım botlarının sayfalara ve görsel yollarına giriş yapmadan erişebilmesi gerekir.

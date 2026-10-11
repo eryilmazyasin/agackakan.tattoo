@@ -9,7 +9,7 @@ export function SiteHeader() {
       </a>
       <div className="header-links">
         <nav className="site-navigation" aria-label="Ana gezinme"><a href="/#eserler">Eserler</a><a href="/#sanatci">Sanatçı</a></nav>
-        <a className="appointment" href={site.appointment} target="_blank" rel="noopener noreferrer">İletişime geç</a>
+        <a className="appointment" href={site.appointment} target="_blank" rel="noopener noreferrer">Randevu al</a>
       </div>
     </header>
   );

@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "arial",
+        "createdAt": "2026-10-11T07:23:32.143Z",
+        "reason": "Agent retained the documented incumbent typography: DESIGN.md specifies Arial/Helvetica for body copy and local Barlow Condensed for headings. The requested change only restores social icons and renames the appointment link."
+      }
+    ]
+  }
+}

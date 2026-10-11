@@ -70,7 +70,7 @@ export function ArtworkViewer({ artwork, sourceElement, sourceButton, onClose }:
       <button type="button" className="viewer-close" onClick={closeViewer} autoFocus>Kapat <span aria-hidden="true">×</span></button>
       <div className="viewer-layout">
         <div ref={frame} className="viewer-frame" style={{ "--photo-ratio": visibleWidth / artwork.height, "--photo-width": `${visibleWidth}px` } as CSSProperties}>
-          <div className={`viewer-photo${imageLoaded ? " is-loaded" : ""}`}><Image src={artwork.src} alt={artwork.alt} fill loading="eager" sizes="(max-width: 767px) 90vw, 640px" style={{ width: `${artwork.width / visibleWidth * 100}%`, right: "auto", maxWidth: "none" }} onLoad={() => setImageLoaded(true)} onError={() => setImageError(true)} /></div>
+          <div className={`viewer-photo${imageLoaded ? " is-loaded" : ""}`} style={{ width: `${artwork.width / visibleWidth * 100}%`, right: "auto" }}><Image src={artwork.src} alt={artwork.alt} fill loading="eager" sizes="(max-width: 767px) 90vw, 640px" onLoad={() => setImageLoaded(true)} onError={() => setImageError(true)} /></div>
           {imageError && <p className="viewer-image-error" role="alert">Fotoğraf yüklenemedi. <a href={artwork.src} target="_blank" rel="noopener noreferrer">Fotoğrafı ayrı aç</a></p>}
         </div>
         <div className="viewer-info">

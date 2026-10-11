@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { artworks, site } from "./site";
 
 // A public origin is supplied at build time; local and preview deployments stay out of search results.
-export const siteUrl = new URL(process.env.SITE_URL || "http://127.0.0.1:3002");
+export const siteUrl = new URL(process.env.SITE_URL || "https://agackakantattoo.com");
 if (!["http:", "https:"].includes(siteUrl.protocol) || siteUrl.pathname !== "/" || siteUrl.search || siteUrl.hash) {
   throw new Error("SITE_URL must be an absolute HTTP(S) origin without a path, query or fragment.");
 }
-export const indexable = !["localhost", "127.0.0.1", "[::1]"].includes(siteUrl.hostname)
+// Development must remain noindex even when canonical URLs use the real domain.
+export const indexable = process.env.NODE_ENV !== "development" && !["localhost", "127.0.0.1", "[::1]"].includes(siteUrl.hostname)
   && process.env.VERCEL_ENV !== "preview" && process.env.SEO_INDEXABLE !== "false";
 export const seoTitle = "Ağaçkakan Tattoo | Esenler Dövme Stüdyosu";
 export const seoDescription = "İstanbul Esenler’de Barış Çakmak ile kişiye özel dövme tasarımı ve uygulaması. Ağaçkakan Tattoo’nun çalışmalarını inceleyin, randevu için iletişime geçin.";

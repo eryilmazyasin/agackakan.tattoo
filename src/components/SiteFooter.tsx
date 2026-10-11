@@ -1,0 +1,16 @@
+import Link from "next/link";
+import { InstagramLogoIcon, WhatsappLogoIcon } from "@phosphor-icons/react/dist/ssr";
+import { Copyright } from "@/components/Copyright";
+import { site } from "@/content/site";
+
+export function SiteFooter() {
+  return (
+    <footer className="guide-footer">
+      <Link href="/">{site.name}</Link>
+      <Link href="/rehber">Dövme Rehberi</Link>
+      <a className="footer-social" href={site.contact.whatsapp} target="_blank" rel="noopener noreferrer"><WhatsappLogoIcon size={20} aria-hidden="true" /><span>WhatsApp’tan yaz</span></a>
+      <a className="footer-social" href={site.appointment} target="_blank" rel="noopener noreferrer"><InstagramLogoIcon size={20} aria-hidden="true" /><span>Instagram</span></a>
+      <Copyright />
+    </footer>
+  );
+}
