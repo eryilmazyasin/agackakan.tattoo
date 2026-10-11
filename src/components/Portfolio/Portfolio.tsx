@@ -6,7 +6,11 @@ export function Portfolio({ artworks }: PortfolioProps) {
   const [featured, ...selection] = artworks;
   if (!featured) return <section id="eserler" className="portfolio-empty"><h2>Seçilmiş eserler</h2><p>Yeni çalışmalar yakında burada.</p></section>;
   return (
-    <section id="eserler" className="portfolio-section" aria-label="Seçilmiş dövmeler">
+    <section id="eserler" className="portfolio-section" aria-labelledby="portfolio-title">
+      <div className="portfolio-header">
+        <div><p className="eyebrow">Portföy</p><h2 id="portfolio-title">Seçilmiş eserler.</h2></div>
+        <p>Farklı hikâyeler, farklı kompozisyonlar.<br />Detaylarını görmek için bir esere dokun.</p>
+      </div>
       <PortfolioExperience artworks={artworks}>
         <div className="featured-scene">
           <ArtworkThumbnail artwork={featured} featured />

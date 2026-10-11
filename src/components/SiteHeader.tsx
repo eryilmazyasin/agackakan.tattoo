@@ -3,7 +3,7 @@ import { site } from "@/content/site";
 
 export function SiteHeader() {
   return (
-    <header className="site-header">
+    <header id="sayfa-basi" className="site-header">
       <a href="/" className="brand" aria-label="Ağaçkakan Tattoo, ana sayfa">
         <Image src={site.logo} width={80} height={81} alt="Ağaçkakan Tattoo orijinal logosu" loading="eager" />
       </a>

@@ -151,13 +151,14 @@ button:active { transform: scale(.99); }
 .featured-scene { min-height: 100dvh; padding: 50px 6vw; display: grid; grid-template-columns: 1.15fr .85fr; gap: 10vw; align-items: center; background: var(--surface); }
 .featured-artwork { width: min(100%, 640px, 72dvh); justify-self: center; }
 .work-button { display: block; width: 100%; border: 0; background: transparent; padding: 0; text-align: left; }
-.work-image { position: relative; display: block; width: 100%; aspect-ratio: var(--work-ratio); background: #232522; overflow: hidden; }
+.work-image { position: relative; display: block; width: 100%; aspect-ratio: var(--work-ratio); background: #232522; overflow: hidden; outline: 1px solid transparent; outline-offset: 5px; }
 .work-image-content { position: absolute; inset: 0 auto 0 0; width: var(--work-image-width, 100%); }
 .work-image img { object-fit: contain; }
 .work-image .work-monochrome { filter: grayscale(1) brightness(.72) contrast(1.16); }
 .work-image .work-color { opacity: 0; transition: opacity .65s ease; }
 .work-button:is(:hover, :focus-visible) .work-color { opacity: 1; }
-.work-button:hover .work-image { outline: 1px solid #77776e; outline-offset: 5px; }
+/* Keep the hover frame stable; only the photograph's color layer should animate. */
+.work-button:hover .work-image { outline-color: #77776e; }
 .featured-artwork figcaption, .work figcaption { display: flex; justify-content: space-between; align-items: start; gap: 20px; padding-top: 18px; }
 .work-title { display: block; font-size: 14px; color: var(--text); }
 .work-category { display: block; margin-top: 8px; font-size: 10px; }
@@ -488,3 +489,84 @@ button:active { transform: scale(.99); }
 
 /* Keep the shared footer clear of the home page’s fixed mobile contact dock. */
 @media (max-width: 767px) { .prototype > .guide-footer { padding-bottom: calc(90px + env(safe-area-inset-bottom)); } }
+
+/* Exhibition polish: shared tokens keep the portfolio and editorial routes in one visual language. */
+:root { --surface-raised: #242422; --scrollbar-thumb: #77776e; --scrollbar-hover: #aaa9a1; }
+html { scroll-behavior: smooth; scrollbar-color: var(--scrollbar-thumb) var(--surface); scrollbar-width: auto; }
+* { scrollbar-color: var(--scrollbar-thumb) var(--surface); }
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border: 3px solid var(--surface); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-hover); }
+::-webkit-scrollbar-thumb:active { background: var(--text); }
+a, button { touch-action: manipulation; }
+p { text-wrap: pretty; }
+h1, h2 { text-wrap: balance; }
+.site-header .header-location { margin-left: auto; letter-spacing: .04em; color: var(--text); }
+.hero-actions { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+.hero-gallery-link { display: inline-flex; align-items: center; gap: 18px; font-size: 13px; min-height: 44px; color: var(--muted); }
+.hero-gallery-link:hover { color: var(--text); }
+.text-link, .text-button { transition: color .25s ease, border-color .25s ease, gap .25s ease; }
+.text-link:hover, .text-button:hover { color: var(--text); border-color: var(--text); }
+.text-link span, .hero-gallery-link span { transition: transform .25s ease; }
+.text-link:hover span { transform: translate(2px, -2px); }
+.hero-gallery-link:hover span { transform: translateY(3px); }
+.portfolio-header { display: flex; justify-content: space-between; align-items: end; gap: 40px; padding-bottom: 48px; }
+.portfolio-header .eyebrow { margin-bottom: 20px; }
+.portfolio-header h2 { font-size: clamp(58px, 6.8vw, 108px); }
+.portfolio-header > p { max-width: 32ch; margin: 0 0 4px; }
+.featured-copy h2 { margin-block: .5em; }
+.work figcaption, .featured-artwork figcaption { border-bottom: 1px solid var(--line); padding-bottom: 18px; }
+.work-category { font-size: 12px; line-height: 1.6; }
+.artist-process-copy { font-size: 15px; max-width: 38ch; }
+.film-control { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: fit-content; min-height: 44px; padding: 12px 0; margin-top: 26px; border: 0; background: transparent; color: var(--muted); font-size: 12px; transition: color .25s ease; }
+.film-control:hover { color: var(--text); }
+.contact-footer { padding: 48px 6vw 0; border-top: 1px solid var(--line); }
+.contact-footer-details { max-width: 1440px; margin-inline: auto; }
+.contact-footer-intro { display: flex; flex-direction: column; align-items: start; gap: 24px; min-width: 0; }
+.contact-footer-intro h2 { margin-top: 16px; font-family: var(--font-display), 'Arial Narrow', sans-serif; font-size: clamp(48px, 5vw, 80px); line-height: 1; text-transform: uppercase; letter-spacing: -.025em; }
+.contact-footer-intro .text-link { gap: 18px; flex-shrink: 0; margin-bottom: 6px; }
+.contact-footer-details { display: grid; grid-template-columns: minmax(0, 1fr) minmax(14rem, .45fr); align-items: start; gap: clamp(32px, 6vw, 96px); padding-bottom: 32px; }
+.contact-footer-details address { font-style: normal; max-width: 50ch; }
+.contact-footer-details address p { font-size: 14px; line-height: 1.8; color: var(--muted); }
+.contact-footer-details > address > span, .contact-footer-channels > span { font-size: 12px; color: var(--muted); }
+.footer-map { display: inline-flex; align-items: center; gap: 24px; margin-top: 4px; min-height: 44px; font-size: 13px; }
+.contact-footer-channels { display: flex; flex-direction: column; align-items: start; gap: 4px; }
+.contact-footer-channels > span { margin-bottom: 12px; }
+.contact-footer-channels > a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px; font-variant-numeric: tabular-nums; }
+.contact-footer a:hover { color: var(--text); }
+.contact-footer .guide-footer { padding: 16px 0; max-width: 1440px; margin: auto; gap: 12px 32px; }
+.contact-footer .guide-footer a { display: inline-flex; align-items: center; gap: 16px; min-height: 44px; transition: color .25s ease; }
+/* Touch users see the original tones without relying on a hover gesture. */
+@media (hover: none) { .work-image .work-color { opacity: 1; } }
+@media (max-width: 767px) {
+  .hero-actions { gap: 20px; }
+  .hero-gallery-link { font-size: 12px; gap: 12px; }
+  .portfolio-header { flex-direction: column; align-items: start; gap: 24px; padding-bottom: 40px; }
+  .portfolio-header > p { font-size: 14px; }
+  .portfolio-header .eyebrow { margin-bottom: 16px; }
+  .featured-description { font-size: 14px; }
+  .work-category { font-size: 11px; }
+  .artist-process-copy { font-size: 14px; max-width: 45ch; }
+  .contact-footer { padding: 36px 20px 0; }
+  .contact-footer-intro { gap: 20px; }
+  .contact-footer-intro .eyebrow { font-size: 10px; }
+  .contact-footer-intro h2 { font-size: clamp(44px, 10vw, 64px); margin-top: 14px; }
+  .contact-footer-details { grid-template-columns: 1fr; gap: 24px; padding-block: 0 24px; }
+  .prototype > .contact-footer { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
+  .mobile-contact-dock { padding-top: 8px; padding-bottom: max(8px, env(safe-area-inset-bottom)); }
+  .mobile-contact-dock a { min-height: 44px; display: inline-flex; align-items: center; }
+  .mobile-contact-dock a:last-child { border-bottom: 1px solid var(--muted); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .text-link, .text-button, .text-link span, .hero-gallery-link span, .film-control, .work-image, .contact-footer .guide-footer a { transition: none; }
+}
+@media (forced-colors: active) {
+  * { scrollbar-color: auto; }
+  .text-link, .text-button, .footer-map { border-color: LinkText; }
+}
+.contact-footer-channels > a:hover { text-decoration: underline; text-underline-offset: 6px; }
+/* These links stay visually quiet on hover while preserving keyboard focus feedback. */
+.hero-actions .text-link, .hero-actions .text-link:hover { gap: 0; border-color: #a9a9a2; transition: none; }
+.contact-footer .footer-map:hover { color: inherit; text-decoration: none; }

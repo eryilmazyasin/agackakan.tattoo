@@ -18,7 +18,10 @@ export function ArtistHero() {
             <h1 className="hero-title"><span data-title-line>Fikrinden</span><span data-title-line>tenine.</span></h1>
             <div data-support className="artist-support">
               <p>Her çizgide bir karar.<br />Sana özel tasarım, elde hayat bulur.</p>
-              <a className="text-link" href={site.appointment} target="_blank" rel="noopener noreferrer">Randevu için yaz</a>
+              <div className="hero-actions">
+                <a className="text-link" href={site.appointment} target="_blank" rel="noopener noreferrer">Randevu için yaz</a>
+                <a className="hero-gallery-link" href="#eserler">Eserleri keşfet <span aria-hidden="true">↓</span></a>
+              </div>
             </div>
           </div>
           <figure className="hands-detail" data-detail>

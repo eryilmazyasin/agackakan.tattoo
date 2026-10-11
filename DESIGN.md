@@ -10,6 +10,11 @@ Bu proje bir dövme sanatçısının portföyü ve yerel stüdyo sitesidir. Ana 
 - Rehber listesi çerçevesiz editoryal bir düzendir. Yazı gövdesi 65 karakter genişliğinde, masaüstünde 17px ve mobilde 16px, 1.85 satır aralığıyla okunur.
 - Mobilde tek sütun; içerik başlıklarına erişim, ilgili yazılar ve gerçek iletişim bağlantıları korunur.
 - Ana sayfada yeni blog vitrini bulunmaz; rehber ayrı rotalarda, footer bağlantısıyla erişilir.
+- Portföyün girişinde bölüm başlığı ve fotoğrafı inceleme yönlendirmesi bulunur; asimetrik eser yerleşimi korunur. Dokunmatik ekranlarda fotoğrafların orijinal tonları doğrudan görünür.
+- Ortak footer, gerçek stüdyo adresini ve yol tarifini sunar. WhatsApp, telefon ve Instagram bağlantıları İletişim başlığı altında aynı düzende yer alır; başa dönüş bağlantısı bulunmaz.
+- Footer masaüstünde 1440px ile sınırlı iki sütundur: solda başlık ve adres, sağda üstten hizalı iletişim bağlantıları. Mobilde tek sütuna geçer; başlık ölçeği ve bağlantı aralıkları kompakt tutulur.
+- Kaydırma çubuğu renkleri `--scrollbar-thumb` ve `--scrollbar-hover` üzerinden ortak tanımlanır. Azaltılmış hareket tercihinde yumuşak kaydırma ve dekoratif hareketler kapatılır.
+- Video yalnızca görünürken oynar; ziyaretçi otomatik oynatmayı kapatabilir. Bu tercih sayfa içindeki kaydırmalarda korunur, azaltılmış hareket tercihi her zaman önceliklidir.
 
 ## İçerik tonu
 
